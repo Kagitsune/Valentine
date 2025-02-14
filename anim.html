@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="hearts.png">
-    <title>An Aster Fleur For Youu💝</title>
+    <title>A Fleur For Loi💝</title>
     <style>
         .button {
             text-decoration: none; /* Removes underline */
@@ -38,17 +38,32 @@
         Your browser does not support the video tag.
     </video>
 
-    <script>
-        const video = document.getElementById("video");
+   <audio id="bg-music" loop>
+    <source src="Nocturne.mp3" type="audio/mpeg">
+</audio>
 
-        video.addEventListener("click", function () {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        });
-    </script>
+<script>
+    document.addEventListener("click", function () {
+        let audio = document.getElementById("bg-music");
+        
+        if (audio.paused) {
+            audio.play().then(() => {
+                console.log("Audio is playing!");
+            }).catch(error => {
+                console.log("Autoplay blocked:", error);
+            });
+        }
+    });
+
+    // Allow touch interaction for mobile users
+    document.addEventListener("touchstart", function () {
+        let audio = document.getElementById("bg-music");
+        
+        if (audio.paused) {
+            audio.play();
+        }
+    });
+</script>
 
 </body>
 </html>
