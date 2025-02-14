@@ -21,20 +21,6 @@
             height: 100vh;
             object-fit: cover;
         }
-
-        #play-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 10; /* Ensure it's above the video */
-        }
     </style>
 </head>
 <body>
@@ -43,49 +29,29 @@
         Your browser does not support the video tag.
     </video>
 
-    <audio id="bg-music" loop>
-        <source src="audio/Nocturne.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <!-- Add a play button -->
-    <button id="play-button">Play Music</button>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script>
-        const audio = document.getElementById("bg-music");
-        const playButton = document.getElementById("play-button");
-
-        // Play audio when the button is clicked
-        playButton.addEventListener("click", () => {
-            if (audio.paused) {
-                audio.play()
-                    .then(() => {
-                        console.log("Audio is playing!");
-                        playButton.textContent = "Pause Music"; // Change button text
-                    })
-                    .catch(error => {
-                        console.log("Autoplay blocked:", error);
-                        alert("Click the button again to play the music."); // Notify the user
-                    });
-            } else {
-                audio.pause();
-                playButton.textContent = "Play Music"; // Change button text
-            }
-        });
-    </script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-    <script>
+        // Initialize Howler.js audio
         const sound = new Howl({
             src: ["audio/Nocturne.mp3"],
             loop: true,
+            autoplay: true, // Attempt to autoplay
+            volume: 1.0, // Set volume to maximum
         });
-    
+
+        // Play audio on user interaction (click or touch)
         document.addEventListener("click", () => {
             if (!sound.playing()) {
                 sound.play();
             }
         });
+
+        // Play audio on page load (if allowed by the browser)
+        window.onload = () => {
+            sound.play().catch(error => {
+                console.log("Autoplay blocked:", error);
+            });
+        };
     </script>
 </body>
 </html>
