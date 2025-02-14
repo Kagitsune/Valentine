@@ -7,7 +7,7 @@
     <title>An Aster Fleur For Youu💝</title>
     <style>
         .button {
-        text-decoration: none; /* Removes underline */
+            text-decoration: none; /* Removes underline */
         }
         
         body {
@@ -17,7 +17,9 @@
             align-items: center;
             height: 100vh;
             background-color: #d1c7f5; /* Adjusted to match your theme */
+            flex-direction: column; /* Stacks video and audio properly */
         }
+
         video {
             width: 100vw;
             height: 100vh;
@@ -26,17 +28,21 @@
     </style>
 </head>
 <body>
-    <audio id="bg-music" loop preload="auto">
-            <source src="Nocturne (Interlude).mp3" type="audio/mpeg">
-        
+
+    <!-- Fix: Added closing </audio> tag -->
+    <audio id="bg-music" autoplay loop>
+        <source src="Nocturne (Interlude).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <video id="video" autoplay>
         <source src="fleur.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
+
     <script>
         const video = document.getElementById("video");
-    
+
         video.addEventListener("click", function () {
             if (video.paused) {
                 video.play();
@@ -45,6 +51,6 @@
             }
         });
     </script>
-    
+
 </body>
 </html>
