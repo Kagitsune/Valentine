@@ -21,22 +21,23 @@
             height: 100vh;
             object-fit: cover;
         }
+
+        #play-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10; /* Ensure it's above the video */
+        }
     </style>
 </head>
 <body>
-    <button id="play-button" style="position: absolute; top: 20px; left: 20px; padding: 10px 20px; background-color: #ff6b6b; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Play Music
-</button>
-
-<script>
-    const playButton = document.getElementById("play-button");
-    playButton.addEventListener("click", () => {
-        if (!sound.playing()) {
-            sound.play();
-            playButton.textContent = "Music Playing";
-        }
-    });
-</script>
     <video id="video" autoplay loop muted>
         <source src="fleur.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -46,10 +47,9 @@
     <script>
         // Initialize Howler.js audio
         const sound = new Howl({
-            src: ["audio/nocturne.mp3"],
+            src: ["audio/nocturne.mp3"], // Ensure this path is correct
             loop: true,
-            autoplay: true, // Attempt to autoplay
-            volume: 1.0, // Set volume to maximum
+            volume: 1.0,
             onplayerror: function () {
                 console.log("Playback failed. User interaction may be required.");
             },
@@ -58,17 +58,18 @@
             }
         });
 
-        // Play audio on user interaction (click or touch)
-        document.addEventListener("click", () => {
+        // Play audio when the button is clicked
+        document.getElementById("play-button").addEventListener("click", () => {
             if (!sound.playing()) {
                 sound.play();
             }
         });
 
-        // Attempt to play audio on page load
-        window.onload = () => {
-            sound.play(); // No .catch() needed for Howler.js
-        };
+        // Debugging: Log the audio file path
+        console.log("Audio file path:", sound._src); // Check the resolved file path
     </script>
+
+    <!-- Add a play button -->
+    <button id="play-button">Play Music</button>
 </body>
 </html>
