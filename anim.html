@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Aster Fleur For Youu💝</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d1c7f5; /* Adjusted to match your theme */
+        }
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay>
+        <source src="video/fleur.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <script>
+        const video = document.getElementById("video");
+    
+        video.addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    </script>
+    
+</body>
+</html>
