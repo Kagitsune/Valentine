@@ -37,6 +37,12 @@
             loop: true,
             autoplay: true, // Attempt to autoplay
             volume: 1.0, // Set volume to maximum
+            onplayerror: function () {
+                console.log("Playback failed. User interaction may be required.");
+            },
+            onloaderror: function () {
+                console.log("Failed to load audio file. Check the file path.");
+            }
         });
 
         // Play audio on user interaction (click or touch)
@@ -46,11 +52,9 @@
             }
         });
 
-        // Play audio on page load (if allowed by the browser)
+        // Attempt to play audio on page load
         window.onload = () => {
-            sound.play().catch(error => {
-                console.log("Autoplay blocked:", error);
-            });
+            sound.play(); // No .catch() needed for Howler.js
         };
     </script>
 </body>
