@@ -28,21 +28,27 @@
     </style>
 </head>
 <body>
-    <audio id="bg-music" autoplay loop muted>
-    <source src="Nocturne (Interlude).mp3" type="audio/mpeg">
+<audio id="bg-music" loop>
+    <source src="Nocturne.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-    const audio = document.getElementById("bg-music");
+    document.addEventListener("DOMContentLoaded", function () {
+        let audio = document.getElementById("bg-music");
 
-    function unmuteAudio() {
-        audio.muted = false;
-        audio.play();
-    }
+        function playAudio() {
+            audio.play().then(() => {
+                console.log("Audio is playing!");
+            }).catch(error => {
+                console.log("Autoplay blocked:", error);
+            });
+        }
 
-    document.addEventListener("click", unmuteAudio);
-    document.addEventListener("touchstart", unmuteAudio);
+        document.addEventListener("click", playAudio);
+        document.addEventListener("touchstart", playAudio);
+    });
 </script>
+
 
 
     <video id="video" autoplay muted>
