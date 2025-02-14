@@ -24,6 +24,19 @@
     </style>
 </head>
 <body>
+    <button id="play-button" style="position: absolute; top: 20px; left: 20px; padding: 10px 20px; background-color: #ff6b6b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Play Music
+</button>
+
+<script>
+    const playButton = document.getElementById("play-button");
+    playButton.addEventListener("click", () => {
+        if (!sound.playing()) {
+            sound.play();
+            playButton.textContent = "Music Playing";
+        }
+    });
+</script>
     <video id="video" autoplay loop muted>
         <source src="fleur.mp4" type="video/mp4">
         Your browser does not support the video tag.
