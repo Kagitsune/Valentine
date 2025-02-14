@@ -36,18 +36,12 @@
     document.addEventListener("DOMContentLoaded", function () {
         let audio = document.getElementById("bg-music");
 
-        function playAudio() {
-            audio.play().then(() => {
-                console.log("Audio is playing!");
-            }).catch(error => {
-                console.log("Autoplay blocked:", error);
-            });
-        }
-
-        document.addEventListener("click", playAudio);
-        document.addEventListener("touchstart", playAudio);
+        setTimeout(() => {
+            audio.play().catch(error => console.log("Autoplay blocked:", error));
+        }, 1000); // 1-second delay
     });
 </script>
+
 
 
 
