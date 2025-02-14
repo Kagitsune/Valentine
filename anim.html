@@ -21,20 +21,6 @@
             height: 100vh;
             object-fit: cover;
         }
-
-        #play-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 10; /* Ensure it's above the video */
-        }
     </style>
 </head>
 <body>
@@ -45,31 +31,25 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script>
-        // Initialize Howler.js audio
+        // Initialize Howler.js audio with autoplay
         const sound = new Howl({
             src: ["audio/Laufey - Valentine.mp3"], // Ensure this path is correct
             loop: true,
             volume: 1.0,
+            autoplay: true,
             onplayerror: function () {
                 console.log("Playback failed. User interaction may be required.");
+                document.addEventListener("click", function () {
+                    sound.play();
+                }, { once: true }); // Allow playing after user clicks
             },
             onloaderror: function () {
                 console.log("Failed to load audio file. Check the file path.");
             }
         });
 
-        // Play audio when the button is clicked
-        document.getElementById("play-button").addEventListener("click", () => {
-            if (!sound.playing()) {
-                sound.play();
-            }
-        });
-
         // Debugging: Log the audio file path
         console.log("Audio file path:", sound._src); // Check the resolved file path
     </script>
-
-    <!-- Add a play button -->
-    <button id="play-button">Play Music</button>
 </body>
 </html>
