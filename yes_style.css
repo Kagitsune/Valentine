@@ -27,22 +27,6 @@ body {
     height: auto; 
 }
 
-.go-to-3d {
-    font-size: 1.5em;
-    padding: 12px 24px;
-    background-color: #ff69b4; /* Hot pink */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-}
-
-.go-to-3d:hover {
-    background-color: #ff1493; /* Darker pink */
-    transform: scale(1.1);
-}
 
 .button {
     text-decoration: none; 
@@ -76,6 +60,7 @@ body {
     }
 
     .buttons {
+        font-family: 'Great Vibes', cursive;
         display: flex;
         gap: 10px;
         justify-content: center;
