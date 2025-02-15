@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 
 body {
     display: flex;
@@ -55,6 +57,10 @@ body {
 @media (max-width: 600px) {
     h1 {
         font-size: 3.5em; /* Increase text size */
+    }
+
+    .button {
+        font-family: 'Great Vibes', cursive !important;
     }
 
     .buttons {
