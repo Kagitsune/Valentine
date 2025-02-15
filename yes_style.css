@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&family=Dancing+Script:wght@400;700&display=swap');
 
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Prevent scrolling if content fits */
     background-color: #f9e3e3;
     font-family: 'Quicksand', sans-serif;
 }
@@ -26,7 +26,6 @@ body {
     max-width: 500px; 
     height: auto; 
 }
-
 
 .button {
     text-decoration: none; 
@@ -52,7 +51,6 @@ body {
     50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 111, 97, 0.6); }
     100% { transform: scale(1); }
 }
-
 
 @media (max-width: 600px) {
     h1 {
