@@ -33,20 +33,21 @@
     <script>
         // Initialize Howler.js audio with autoplay
         const sound = new Howl({
-            src: ["nocturne.mp3"], // Ensure this path is correct
-            loop: true,
-            volume: 1.0,
-            autoplay: true,
-            onplayerror: function () {
-                console.log("Playback failed. User interaction may be required.");
-                document.addEventListener("click", function () {
-                    sound.play();
-                }, { once: true }); // Allow playing after user clicks
-            },
-            onloaderror: function () {
-                console.log("Failed to load audio file. Check the file path.");
-            }
-        });
+        src: ["nocturne_fixed.mp3"], // Use the new file
+        loop: true,
+        volume: 1.0,
+        autoplay: true,
+        onplayerror: function () {
+            console.log("Playback failed. User interaction may be required.");
+            document.addEventListener("click", function () {
+                sound.play();
+            }, { once: true });
+        },
+        onloaderror: function () {
+            console.log("Failed to load audio file. Check the file path.");
+        }
+    });
+
 
         // Debugging: Log the audio file path
         console.log("Audio file path:", sound._src); // Check the resolved file path
