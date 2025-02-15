@@ -10,6 +10,7 @@ body {
     margin: 0;
     background-color: #CCCCFF;
     flex-direction: column;
+    overflow: hidden;
   }
   
   .container {
