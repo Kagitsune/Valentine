@@ -1,15 +1,15 @@
 
 const messages = [
-    "Are you sure?",
-    "Really sure🤔",
-    "Are you positive?",
-    "Ummm pweasee😣",
-    "Just think about it!",
+    "Are you sure?🤨",
+    "Really sureee?🤔",
+    "Are you positive?😳",
+    "Ummm pweasee🥺",
+    "Just think about it!🙁",
     "If you say no, I will be really sad🥺",
     "I will be very sad🥺🥺",
     "I will be very very very sad🥺🥺🥺",
-    "K fine, I will stop asking😑",
-    "Kiddinn, say yes please! ❤️"
+    "K fine, I will stop asking😤",
+    "Kiddinn, say yes pwease! ❤️"
 ];
 
 let messageIndex = 0;
